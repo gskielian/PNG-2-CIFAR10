@@ -3,6 +3,7 @@ from PIL import Image
 import os
 from array import *
 
+data = array('B')
 
 for dirname, dirnames, filenames in os.walk('./classes'):
     for filename in filenames:
@@ -25,7 +26,6 @@ for dirname, dirnames, filenames in os.walk('./classes'):
 	    ###########################
 
 	    # create array of bytes to hold stuff
-	    data = array('B')
 
 	    #first append the class_name byte
 	    data.append(class_name)
