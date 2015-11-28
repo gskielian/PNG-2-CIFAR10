@@ -51,3 +51,12 @@ example of where files will appear/where-to put png's:
         └── placeholder.txt
 ```
 
+# batches.meta.txt
+
+suppose you only have two categories (e.g. dogs and cats), in this case you would mod your batches.meta.txt file to read the following (assuming dogs are in '0' folder and cat png's are in '1'):
+
+```txt
+dog
+cat
+
+```
