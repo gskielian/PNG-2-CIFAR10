@@ -1,19 +1,38 @@
 # PNG-to-CIFAR10-Format
 
-Command line tool for converting a set of images to cifar10 binary format for training - requires imagemagick and python 2.7 PIL
+Super simple method for converting a set of images to cifar10 binary format for training (depends on imagemagick and python 2.7 PIL)
+
+# Dependencies:
+
+Use the following lines to install imagemagick and the python-imaging-library (PIL):
+
+```bash
+sudo apt-get update
+sudo apt-get install imagemagick php5-imagick
+pip install pillow
+```
+
+# Transform your images into a Cifar10 Binary:
 
 
-1. Copy-pasta your png images into one of the class folders (e.g. dogs -> 0, cats -> 1, ... giraffes->9)
-2. Change the appropriate labels in `batches.meta.txt`
-3. then use: `resize-script.sh` which converts all png's to standard 32x32pixel size
-4. lastly, do `python convert-images-to-cifar-format.py` to fold all the pics and categories into a single cifar-10-compatible binary, which will appear as `cifar10-ready.bin`
+1/. Copy-pasta your png images into one of the class folders, as seen in  (e.g. dogs -> 0, cats -> 1, ... giraffes->9)
+
+2/. Change the appropriate labels in `batches.meta.txt`
+
+3/. then use the following bash script which processes the images, rescaling all of the png's you placed in the folders the Cifar10 standard 32x32pixel size
+
+`./resize-script.sh`
+
+4/. lastly, run the following python script to fold all the pics and categories into a single cifar-10-compatible binary -- binary will appear as `cifar10-ready.bin`
+
+`python convert-images-to-cifar-format.py`
 
 
-Use the batches.meta.txt and cifar10-ready.bin files in place of the conventional data in any standard cifar10 tutorial (reminder you may need to adjust number of categories, size of dataset, etc.)
+# Victory
 
+You now have `batches.meta.txt` and `cifar10-ready.bin` files, and can replace the the conventional data in any standard cifar10 tutorial with your own data :D (reminder you may need to adjust number of categories, size of dataset, etc.)
 
 Enjoy!
-
 
 # Tree
 
