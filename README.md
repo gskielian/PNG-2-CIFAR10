@@ -4,6 +4,7 @@ Command line tool for converting a set of images to cifar10 binary format for tr
 # Usage
 
 1\. place png's inside respective classes in the `classes` directory
+
 2\. run the `resize-script.sh` to convert each of these pngs to 32x32 pixels
 
 `./resize-script.sh`
