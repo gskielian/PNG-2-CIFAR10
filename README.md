@@ -3,7 +3,7 @@ Command line tool for converting a set of images to cifar10 binary format for tr
 
 # Usage
 
-1\. place png's inside respective classes in the `classes` directory
+1\. place png's inside respective classes in the `classes` directory, (optionally assign names in `batches.meta.txt`)
 
 2\. run the following to convert each of these pngs (must be in their class directory) to 32x32 pixels
 
