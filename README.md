@@ -28,7 +28,7 @@ pip install pillow
 `python convert-images-to-cifar-format.py`
 
 
-# Victory
+# Victory!
 
 You now have `batches.meta.txt` and `cifar10-ready.bin` files, and can replace the the conventional data in any standard cifar10 tutorial with your own data :D (reminder you may need to adjust number of categories, size of dataset, etc.)
 
