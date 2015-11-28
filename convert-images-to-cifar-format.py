@@ -1,21 +1,51 @@
 #python script for converting 32x32 pngs to format
 from PIL import Image
 import os
+from array import *
 
-im = Image.open("output.png") #Can be many different formats.
-pix = im.load()
-print im.size #Get the width and hight of the image for iterating over
-print pix[0,0] #Get the RGBA Value of the a pixel of an image
-print pix[0,1] #Get the RGBA Value of the a pixel of an image
-print pix[0,2] #Get the RGBA Value of the a pixel of an image
-print pix[0,3] #Get the RGBA Value of the a pixel of an image
 
-for fn in os.listdir('./classes/1/'):
-     if os.path.isfile(fn):
-        print (fn)
+for dirname, dirnames, filenames in os.walk('./classes'):
+    for filename in filenames:
+	if filename.endswith('.png'):
 
-with open ('test.png', 'wb') as f:
-    f.write(b'Hi There')
-    f.write(b'Hi There')
+	    ################
+	    #grab the image#
+	    ################
+
+	    im = Image.open(os.path.join(dirname, filename))
+	    pix = im.load()
+	    #print(os.path.join(dirname, filename))
+
+	    #store the class name from look at path
+	    class_name = int(os.path.join(dirname).split('/')[-1])
+	    #print class_name
+
+	    ###########################
+	    #get image into byte array#
+	    ###########################
+
+	    # create array of bytes to hold stuff
+	    data = array('B')
+
+	    #first append the class_name byte
+	    data.append(class_name)
+
+	    #then write the rows
+	    #Extract RGB from pixels and append
+	    #note: first we get red channel, then green then blue
+	    #note: no delimeters, just append for all images in the set
+	    for color in range(0,3):
+		for x in range(0,32):
+		    for y in range(0,32):
+			data.append(pix[x,y][color])
+
+
+############################################
+#write all to binary, all set for cifar10!!#
+############################################
+
+output_file = open('cifar10-ready.bin', 'wb')
+data.tofile(output_file)
+output_file.close()
 
 
