@@ -1,4 +1,4 @@
-# PNG-to-CIFAR10-Format
+# PNG-to-CIFAR10
 
 Super simple method for converting a set of images to cifar10 binary format for training (depends on imagemagick and python 2.7 PIL)
 
