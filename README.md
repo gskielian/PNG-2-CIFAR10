@@ -15,15 +15,15 @@ pip install pillow
 # Transform your images into a Cifar10 Binary:
 
 
-1/. Copy-pasta your png images into one of the class folders, as seen in  (e.g. dogs -> 0, cats -> 1, ... giraffes->9)
+1\. Copy-pasta your png images into one of the class folders, as seen in  (e.g. dogs -> 0, cats -> 1, ... giraffes->9)
 
-2/. Change the appropriate labels in `batches.meta.txt`
+2\. Change the appropriate labels in `batches.meta.txt`
 
-3/. then use the following bash script which processes the images, rescaling all of the png's you placed in the folders the Cifar10 standard 32x32pixel size
+3\. then use the following bash script which processes the images, rescaling all of the png's you placed in the folders the Cifar10 standard 32x32pixel size
 
 `./resize-script.sh`
 
-4/. lastly, run the following python script to fold all the pics and categories into a single cifar-10-compatible binary -- binary will appear as `cifar10-ready.bin`
+4\. lastly, run the following python script to fold all the pics and categories into a single cifar-10-compatible binary -- binary will appear as `cifar10-ready.bin`
 
 `python convert-images-to-cifar-format.py`
 
