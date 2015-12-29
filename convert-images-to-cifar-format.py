@@ -5,6 +5,9 @@ from PIL import Image
 import os
 from array import *
 
+def average(pixel):
+  return (pixel[0] + pixel[1] + pixel[2])/3
+
 folders = ['./training-images', './test-images']
 
 for folder in folders:
@@ -77,7 +80,7 @@ for folder in folders:
 
   #TODO make sure to convert if else into string replace for neatness
   # folders = ['./training-images', './test-images']
-  if folder==folder[0]:
+  if folder==folders[0]:
     output_file = open('train-images-idx3-ubyte', 'wb')
     data_image.tofile(output_file)
     output_file.close()
@@ -85,7 +88,7 @@ for folder in folders:
     output_file = open('train-labels-idx1-ubyte', 'wb')
     data_label.tofile(output_file)
     output_file.close()
-  elif folder==folder[1]:
+  elif folder==folders[1]:
     output_file = open('test-images-idx3-ubyte', 'wb')
     data_image.tofile(output_file)
     output_file.close()
@@ -95,5 +98,3 @@ for folder in folders:
     output_file.close()
 
 
-def average(pixel):
-  return (pixel[0] + pixel[1] + pixel[2])/3
