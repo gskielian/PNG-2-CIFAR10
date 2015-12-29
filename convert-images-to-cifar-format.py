@@ -62,7 +62,6 @@ for folder in folders:
         #getting image into byte array#
         ###############################
 
-
         #append image
         for x in range(0,28):
           for y in range(0,28):
@@ -72,13 +71,20 @@ for folder in folders:
         #append label
         data_label.append(class_name) # labels start (one unsigned byte each)
 
-############################################
-#write all to binary, all set for cifar10!!#
-############################################
+  #####################
+  #write all to binary#
+  #####################
 
-output_file = open('cifar10-ready.bin', 'wb')
-data.tofile(output_file)
-output_file.close()
+  #TODO make sure to convert if else into string replace for neatness
+  folders = ['./training-images', './test-images']
+  if folder==folder[0]:
+    output_file = open('train-images-idx3-ubyte', 'wb')
+    data_image.tofile(output_file)
+    output_file.close()
+  elif folder==folder[1]:
+    output_file = open('train-labels-idx1-ubyte', 'wb')
+    data_label.tofile(output_file)
+    output_file.close()
 
 
 def average(pixel):
