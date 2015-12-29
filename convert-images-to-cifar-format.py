@@ -76,13 +76,21 @@ for folder in folders:
   #####################
 
   #TODO make sure to convert if else into string replace for neatness
-  folders = ['./training-images', './test-images']
+  # folders = ['./training-images', './test-images']
   if folder==folder[0]:
     output_file = open('train-images-idx3-ubyte', 'wb')
     data_image.tofile(output_file)
     output_file.close()
-  elif folder==folder[1]:
+
     output_file = open('train-labels-idx1-ubyte', 'wb')
+    data_label.tofile(output_file)
+    output_file.close()
+  elif folder==folder[1]:
+    output_file = open('test-images-idx3-ubyte', 'wb')
+    data_image.tofile(output_file)
+    output_file.close()
+
+    output_file = open('test-labels-idx1-ubyte', 'wb')
     data_label.tofile(output_file)
     output_file.close()
 
